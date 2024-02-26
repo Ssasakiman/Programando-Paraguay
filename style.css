@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,800);
+
 h1{font-weight: 800;}
 
 #titulocalc{
@@ -8,9 +10,9 @@ h1{font-weight: 800;}
 #titulocont{
     color: white;
     font-weight: 800;
+    font-size: 1.5em;
+    text-decoration: solid;
 }
-
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,800);
 
 body{
     background-image: linear-gradient(
@@ -22,7 +24,8 @@ body{
     background-attachment: fixed;
     background-size:cover; 
     font-family: 'Montserrat', sans-serif;
-    color:#001d05;
+    font-weight: lighter;
+    color:#05350d;
 }
 
 #Contenedor{
@@ -45,11 +48,12 @@ body{
     letter-spacing: 1px;
     line-height: 0.65cm;
     text-align: center;
-    background: #73ddb1;
+    background: #1dac71d5;
     width: 50%;
     height: 100%;
     float: left;
     color: #f6f5f7;
+    font-weight: bold;
 }
 
 .contenido{
@@ -65,6 +69,11 @@ input{
     padding: 12px 15px;
     border: none;
     background-color: #eee;
+    border-radius: 2em;
+}
+
+.contenedordeBoton {
+    position: relative;
 }
 
 button{
@@ -72,17 +81,68 @@ button{
     font-weight: bold;
     padding: 12px 45px;
     border-radius: 30px;
-    background-color: #73ddb1;
-    border: 1px solid #73ddb1;
-    color: #FFFFFF;
+    background-color: #ffffffd2;
+    border: 0px;
+    color: #013620;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: transform 20ms ease-in;
-    margin-top: 0.45cm;
+    margin-top: 0.7cm;
+    cursor: pointer;
+    transition:         0.08s ease-in;
+    -o-transition:      0.08s ease-in;
+    -ms-transition:     0.08s ease-in;
+    -moz-transition:    0.08s ease-in;
+    -webkit-transition: 0.08s ease-in;
+    position: relative;
+}
+
+button:hover{
+    color: whitesmoke;
+    background-color: rgb(2, 26, 2);
+}
+
+button:before{
+    content: "";
+  position: absolute;
+  background: #383736;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: -1;
+  transition:         top 0.09s ease-in;
+  -webkit-transition: top 0.09s ease-in;
+}
+
+button:hover:before{
+    left: 91%;
+    opacity: 1;
 }
 
 button:active{
     transform: scale(0.95);
+    transition: 0.1s;
+}
+
+button:after {
+    content: "";
+    position: absolute;
+    border-radius: 30px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    opacity: 0;
+    transition: all 0.8s;
+    box-shadow: 0 0 15px 24px rgba(1, 97, 1, 0.596);
+}
+
+button:active:after {
+    box-shadow: 0 0 0 0 rgba(1, 22, 1, 0.89);
+    opacity: 1;
+    transition: none;
 }
 
 #Contenedor{
@@ -104,10 +164,30 @@ button:active{
     display: none;
 }
 
+#botonsalir{
+    background: none;
+    color: white;
+    display: none;
+    font-size: medium;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: 10px;
+    z-index: 200;
+    cursor: pointer;
+    padding: 15px 15px;
+}
+
 .resultado{
-    color: #0A81D1;
+    color: whitesmoke;
     font-weight: bold;
     font-size: 25px;
     margin-bottom: 5px;
     display: none;
+    font-size: medium;
 }
+
+#titulomet {
+    text-decoration: underline;
+    font-size: 1.4em;
+  }

@@ -5,28 +5,42 @@
         <title>Calculadora de Hidratación</title>
         <meta charset="UTF-8" />
         <link rel="stylesheet" href="./style.css">
+        <script src="./script.js" defer></script>
     </head>
     <body>
        <div id="Contenedor">
                 <div id="Calculadora">
                     <div class="contenido">
                         <h1 class="titulocalc">Hidratación Basal</h1>    
-                        <p class="item">Complete todos los datos</p>
+                        <p class="item">Complete con el peso del niño</p>
                         <input class="item" id="peso" placeholder="Peso en kg"/> 
                         <p class="item" id="error">* Debe completar todos los datos</p>
+                        <div class="contenedordeBoton">
                         <button class="item" id="calcular">Calcular</button>
-                        <p class="item resultado" id="flu">71cc/h</p>
-                        <p class="item resultado" id="man">m+m/2 : 105cc/h</p>
+                        </div>
                     </div>
                 </div>
                 <div id="Detalle">
                     <div class="contenido">
+                        <div class="comosecalcula" id="instrucciones">
                         <h1 id="titulocont">¿Cómo se calcula?</h1>
-                        <u1>
-                            <li>De 0kg a 10kg, se calcula 100cc por cada kilo.</li>
-                            <li>Se suman 50cc por cada kilo de peso por arriba de 10kg, hasta 20kg</li>
-                            <li>De 20kg para arriba, se suman 20cc por cada kilo adicional</li>
-                        </u1>  
+                            <ul>
+                                <li>De 0kg a 10kg, se calcula 100cc por cada kilo.</li>
+                                <li>Se suman 50cc por cada kilo de peso por arriba de 10kg, hasta 20kg</li>
+                                <li>De 20kg para arriba, se suman 20cc por cada kilo adicional</li>
+                                <li>Cuando el niño pesa más de 30kg, se utiliza un cálculo diferente:
+                                    <div style="color: rgb(5, 65, 47);">Superficie corporal = <br>( (peso * 4) + 7) / (peso + 90)<br/></div>
+                                    Este resultado se multiplica por 1500 o por 2000 para hallar el valor del volumen diario en cc, y el medico decide cual de los dos resultados utilizar.</li>
+                            </ul> 
+                        </div>
+                        <button class="item" id="botonsalir">X</button>
+                        <div class="resultados">
+                            <h1 class="item resultado" id ="titulomet"> a </h1>
+                            <p class="item resultado" id="flu">a</p>
+                            <p class="item resultado" id="hr">b</p>
+                            <p class="item resultado" id="man">c</p>
+                        </div>
+                             
                     </div>  
                 </div>
        </div>
