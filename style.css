@@ -181,13 +181,34 @@ button:active:after {
 .resultado{
     color: whitesmoke;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
     margin-bottom: 5px;
     display: none;
-    font-size: medium;
 }
 
 #titulomet {
     text-decoration: underline;
     font-size: 1.4em;
   }
+
+#milq {
+    display: none;
+    position: relative;
+    font-size: 17px;
+    font-weight: bold;
+    z-index: 200;
+    margin: 10px auto;
+    margin-top: 0.7cm;
+    text-transform: lowercase;
+}
+
+#dosm {
+    display: none;
+    position: relative;
+    font-size: 17px;
+    font-weight: bold;
+    z-index: 200;
+    margin: 10px auto;
+    margin-top: 0.7cm;
+    text-transform: lowercase;
+}

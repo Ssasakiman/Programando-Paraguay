@@ -8,6 +8,8 @@ const INS = document.getElementById("instrucciones");
 const HR = document.getElementById("hr");
 const TIT = document.getElementById("titulomet");
 const BOT = document.getElementById("botonsalir");
+const MILQ = document.getElementById("milq");
+const DOSM = document.getElementById("dosm");
 
 CALCULAR.addEventListener("click", () => {
     const DATO = document.getElementById("peso").value
@@ -17,7 +19,7 @@ CALCULAR.addEventListener("click", () => {
         let flujo =(Holliday(DATO)).toFixed(2);
         let porhora =(flujo/24).toFixed(2);
         let mantenimiento = (porhora*1.5).toFixed(2);
-        FLU.innerHTML = "Volúmen Diario = " + flujo + " cc";
+        FLU.innerHTML = "Volumen Diario = " + flujo + " cc";
         HR.innerHTML = "Mantenimiento = " + porhora + " cc/hr";
         MAN.innerHTML = "m+m/2= "+ mantenimiento + " cc/hr";
         TIT.innerHTML = "Método Hollyday - Segar" 
@@ -26,26 +28,20 @@ CALCULAR.addEventListener("click", () => {
         HR.style.display = "block";
         TIT.style.display = "block";
         BOT.style.display = "block";
+        MILQ.style.display = "none"
+        DOSM.style.display = "none"
     }
     else if(DATO>30) {
         INS.style.display = "none";
         ERROR.style.display = "none";
-        let flujo =SuperficieCorporal(DATO);
-        let flujoa = (flujo*1500).toFixed(2);
-        let flujob = (flujo*2000).toFixed(2);
-        let porhoraa = ((flujoa*1)/24).toFixed(2);
-        let porhorab = ((flujob*1)/24).toFixed(2);
-        let mantenimientoa = (porhoraa*1.5).toFixed(2);
-        let mantenimientob = (porhorab*1.5).toFixed(2);
-        FLU.innerHTML = "I. Volúmen Diario (* 1500) = " + flujoa + " cc" + "<br>&nbsp;<br>" + "II. Volúmen Diario (* 2000) = " + flujob + " cc";
-        HR.innerHTML = "I. Mant. (* 1500) = " + porhoraa + " cc/hr" + "<br>&nbsp;<br>" + "II. Mant. (* 2000) = " + porhorab + " cc/hr";
-        MAN.innerHTML = "I. m+m/2 (*1500) = " + mantenimientoa + " cc/hr" + "<br>&nbsp;<br>" + "II. m+m/2 (*2000) = "+ mantenimientob + " cc/hr";
-        TIT.innerHTML = "Método Superficie Corporal"
-        FLU.style.display = "block";
-        MAN.style.display = "block";
-        HR.style.display = "block";
+        MILQ.style.display = "block";
+        DOSM.style.display = "block";
         TIT.style.display = "block";
         BOT.style.display = "block";
+        FLU.style.display = "none";
+        MAN.style.display = "none";
+        HR.style.display = "none";
+        TIT.innerHTML = "Método Superficie Corporal"
     }
     else {
         ERROR.style.display = "block";
@@ -55,8 +51,12 @@ CALCULAR.addEventListener("click", () => {
         INS.style.display = "block";
         TIT.style.display = "none";
         BOT.style.display = "none";
+        MILQ.style.display = "none"
+        DOSM.style.display = "none"
     }
 })
+
+
 
 BOT.addEventListener("click", () => {
         ERROR.style.display = "none";
@@ -66,6 +66,54 @@ BOT.addEventListener("click", () => {
         INS.style.display = "block";
         TIT.style.display = "none";
         BOT.style.display = "none";
+        MILQ.style.display = "none"
+        DOSM.style.display = "none"
+})
+
+MILQ.addEventListener("click", () => {
+    const DATO = document.getElementById("peso").value
+    if(DATO>30) {
+        INS.style.display = "none";
+        ERROR.style.display = "none";
+        let flujo =SuperficieCorporal(DATO);
+        let flujoa = (flujo*1500).toFixed(2);
+        let porhoraa = ((flujoa*1)/24).toFixed(2);
+        let mantenimientoa = (porhoraa*1.5).toFixed(2);
+        FLU.innerHTML = "Volumen Diario = " + flujoa + " cc";
+        HR.innerHTML = "Mantenimiento = " + porhoraa + " cc/hr";
+        MAN.innerHTML = "m+m/2 = " + mantenimientoa + " cc/hr";
+        TIT.innerHTML = "Método Superficie Corporal x1500"
+        FLU.style.display = "block";
+        MAN.style.display = "block";
+        HR.style.display = "block" ;
+        MILQ.style.display = "none";
+        DOSM.style.display = "none";
+        TIT.style.display = "block";
+        BOT.style.display = "block";
+        }
+})
+
+DOSM.addEventListener("click", () => {
+    const DATO = document.getElementById("peso").value
+    if(DATO>30) {
+        INS.style.display = "none";
+        ERROR.style.display = "none";
+        let flujo =SuperficieCorporal(DATO);
+        let flujob = (flujo*2000).toFixed(2);
+        let porhorab = ((flujob*1)/24).toFixed(2);
+        let mantenimientob = (porhorab*1.5).toFixed(2);
+        FLU.innerHTML = "Volumen Diario = " + flujob + " cc";
+        HR.innerHTML = "Mantenimiento = " + porhorab + " cc/hr";
+        MAN.innerHTML = "m+m/2 = " + mantenimientob + " cc/hr";
+        TIT.innerHTML = "Método Superficie Corporal x2000"
+        FLU.style.display = "block";
+        MAN.style.display = "block";
+        HR.style.display = "block";
+        MILQ.style.display = "none";
+        DOSM.style.display = "none";
+        TIT.style.display = "block";
+        BOT.style.display = "block";
+        }
 })
 
 function Holliday(peso){
