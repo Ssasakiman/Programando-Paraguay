@@ -120,7 +120,7 @@ function Holliday(peso){
     let flujo = 0;
 
     if (peso>20 && peso<=30){
-        flujo= 1500+((peso-20)*20)
+        flujo= 1500+((peso-20)*20);
     }
     else if (peso>10 && peso<=20){ 
         flujo = 1000+((peso-10)*50);
