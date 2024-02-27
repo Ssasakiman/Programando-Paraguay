@@ -117,31 +117,25 @@ DOSM.addEventListener("click", () => {
 })
 
 function Holliday(peso){
-    let resto = peso;
     let flujo = 0;
 
-    if (resto>20 && resto<=30){
-        let aux = resto-20;
-        flujo += aux*20;
-        resto -= aux;
+    if (peso>20 && peso<=30){
+        flujo= 1500+((peso-20)*20)
     }
-    if (resto>10 && resto<=20){ 
-        let aux = resto - 10;
-        flujo += aux*50;
-        resto -= aux;
+    else if (peso>10 && peso<=20){ 
+        flujo = 1000+((peso-10)*50);
     }
-    if (resto>0 && resto<=10){
-        flujo += resto*100;
+    else if (peso>0 && peso<=10){
+        flujo = peso*100; 
     }
     return (flujo);
 }
 
 function SuperficieCorporal(peso){
-    let resto = peso;
     let flujo = 0;
 
-    if(resto>30){
-       flujo = ((4*resto)+7)/((resto*1)+90)
+    if(peso>30){
+       flujo = ((4*peso)+7)/((peso*1)+90)
     } 
 
     return (flujo);
